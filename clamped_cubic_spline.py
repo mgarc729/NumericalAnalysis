@@ -125,20 +125,25 @@ class ClampedSpline(object):
 
 	def evaluate(self, x):
 		for i in range(0, self.n):
-			if x >= self.x_i[i]:
+			print "i",i
+			if self.x_i[i] <= x <= self.x_i[i+1]:
+				print i
 				return self._cubic(self.result[i], x, self.x_i[i])
 
 
 
 
 if __name__ == "__main__":
-	x_i = [1, 17, 27.7, 30]
-	a_i = [3, 4.5, 4.1, 3.0]
-	fp0 = 1
+	# x_i = [1, 2, 5, 6, 7, 8, 10, 13, 17]
+	# a_i = [3, 3.7, 3.9, 4.2, 5.7, 6.6, 7.1, 6.7, 4.5]
+	x_i = [0.9, 1.3, 1.9, 2.1, 2.6, 3.0, 3.9, 4.4, 4.7, 5.0, 6.0, 7.0, 8.0, 9.2, 10.5, 11.3, 11.6, 12.0, 12.6, 13.0, 13.3]
+	a_i = [1.3, 1.5, 1.85, 2.1, 2.6, 2.7, 2.4, 2.15, 2.05, 2.1, 2.25, 2.3, 2.25, 1.95, 1.4, 0.9, 0.7, 0.6, 0.5, 0.4, 0.25]
+	fp0 = 0.33
 	fpn = -1.5
 
 	clamped = ClampedSpline(x_i, a_i, fp0, fpn)
 	clamped.generate()
 
 
-	print clamped.evaluate(30)
+	print clamped.result
+	print clamped.evaluate(28.1)
