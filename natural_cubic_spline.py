@@ -3,6 +3,19 @@ import numpy as np
 
 
 class NaturalSpline(object):
+	"""Calculates the Natural Cubic Spline for a set of points
+
+
+	:args
+		x_i: set of points in the x coordinate
+		a_i: set of f(x) points
+	:param
+		n: Maximum sub index of points
+		x_i(np.array): set of points in the x coordinate
+		a_i(np.array): set of f(x) points
+		result(np.array): set of all the coefficients per spline(n-1 splines)
+
+	"""
 	def __init__(self, x_i, a_i):
 		if len(x_i) is not len(a_i):
 			raise ValueError("Points array(x_i) and f(x_i) array(a_i) has to have the same size")
