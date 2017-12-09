@@ -135,15 +135,28 @@ class NaturalSpline(object):
 
 
 if __name__ == "__main__":
-	# x_i = [1, 2, 5, 6, 7, 8, 10, 13, 17]
-	# a_i = [3, 3.7, 3.9, 4.2, 5.7, 6.6, 7.1, 6.7, 4.5]
-	x_i = [0.9, 1.3, 1.9, 2.1, 2.6, 3.0, 3.9, 4.4, 4.7, 5.0, 6.0, 7.0, 8.0, 9.2, 10.5, 11.3, 11.6, 12.0, 12.6, 13.0, 13.3]
-	a_i = [1.3, 1.5, 1.85, 2.1, 2.6, 2.7, 2.4, 2.15, 2.05, 2.1, 2.25, 2.3, 2.25, 1.95, 1.4, 0.9, 0.7, 0.6, 0.5, 0.4, 0.25]
+	x_i_1 = [1, 2, 5, 6, 7, 8, 10, 13, 17]
+	a_i_1 = [3, 3.7, 3.9, 4.2, 5.7, 6.6, 7.1, 6.7, 4.5]
 
+	x_i_2 = [17, 20, 23, 24, 25, 27,27.7]
+	a_i_2 = [4.5, 7.0, 6.1, 5.6, 5.8, 5.2, 4.1]
 
-	clamped = NaturalSpline(x_i, a_i)
-	clamped.generate()
+	x_i_3 = [27.7, 28, 29, 30]
+	a_i_3 = [4.1, 4.3, 4.1, 3.0]
 
+	print "Natural Spline"
+	clamped_1 = NaturalSpline(x_i_1, a_i_1)
+	clamped_2 = NaturalSpline(x_i_2, a_i_2)
+	clamped_3 = NaturalSpline(x_i_3, a_i_3)
 
-	print clamped.result
-	# print clamped.evaluate(28.1)
+	print "Curve 1 a, b, c, d"
+	clamped_1.generate()
+	print clamped_1.result
+
+	print "Curve 2 a, b, c, d"
+	clamped_2.generate()
+	print clamped_2.result
+
+	print "Curve 3 a, b, c, d"
+	clamped_3.generate()
+	print clamped_3.result
